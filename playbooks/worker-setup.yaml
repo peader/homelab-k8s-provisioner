@@ -14,6 +14,7 @@
       when: "'masters' in group_names"
 
     - name: join cluster
+      user: root
       shell: "{{ hostvars['master'].join_command }} --ignore-preflight-errors all  >> node_joined.txt"
       args:
         chdir: $HOME
