@@ -72,9 +72,15 @@
        state: started
        enabled: yes
 
+    - name: Get Kubernetes package key
+      shell: curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | gpg --dearmor -o /usr/share/keyrings/kubernetes-apt-keyring.gpg
+      args:
+        creates: /usr/share/keyrings/kubernetes-apt-keyring.gpg
+
    - name: Add Kubernetes apt repository
      apt_repository:
-       repo: deb https://pkgs.k8s.io/ kubernetes-xenial main
+       filename: kubernetes
+       repo: "deb [signed-by=/usr/share/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /"
        state: present
 
    - name: Install kubelet and kubeadm
