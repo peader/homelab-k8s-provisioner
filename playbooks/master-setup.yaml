@@ -1,6 +1,7 @@
 
 - name: Configuration of master node
-  hosts: masters
+  hosts: localhost
+  connection: local
   tasks:
     - name: initialize K8S cluster
       shell: kubeadm init --pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=192.168.200.5 --ignore-preflight-errors=all
