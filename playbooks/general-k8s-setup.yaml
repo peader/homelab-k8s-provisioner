@@ -2,6 +2,7 @@
 - name: Initialize master and worker nodes
   hosts: workers
   user: root
+  become: yes
   tasks:
 
    - name: disable UFW firewall for labs
