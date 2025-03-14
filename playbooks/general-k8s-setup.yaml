@@ -76,6 +76,11 @@
      ansible.builtin.apt_key:
        url: https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key
        state: present
+   - name: Update and upgrade apt packages
+     apt:
+       upgrade: yes
+       update_cache: yes
+       cache_valid_time: 86400 
 
    - name: Add Kubernetes apt repository
      apt_repository:
