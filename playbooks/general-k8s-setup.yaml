@@ -34,7 +34,7 @@
        name: gnupg
        state: present
        update_cache: yes 
-       
+
    - name: Installation of apt-utils
      apt:
       name: apt-transport-https
@@ -74,7 +74,7 @@
 
    - name: Add Kubernetes apt repository
      apt_repository:
-       repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+       repo: deb https://pkgs.k8s.io/ kubernetes-xenial main
        state: present
 
    - name: Install kubelet and kubeadm
