@@ -29,6 +29,12 @@
        state: present
        reload: yes
 
+   - name: Installation of gnupg
+     apt:
+       name: gnupg
+       state: present
+       update_cache: yes 
+       
    - name: Installation of apt-utils
      apt:
       name: apt-transport-https
