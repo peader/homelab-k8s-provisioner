@@ -28,6 +28,11 @@
        value: '1'
        state: present
        reload: yes
+   - name: Installation of curl
+     apt:
+       name: curl
+       state: present
+       update_cache: yes 
 
    - name: Installation of gnupg
      apt:
